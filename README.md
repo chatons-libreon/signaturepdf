@@ -65,16 +65,22 @@ DocumentRoot /path/to/signaturepdf/public
 
 ### Déployer avec docker
 
-#### Construction de l'image
+#### Téléchargement de l'image
 
 ```bash
-docker build -t signaturepdf .
+docker pull xgaia/signaturepdf:latest
 ````
+
+Les tags suivants sont disponible :
+
+- `latest`: dernière version
+- `x.x.x`: version x.x.x
+- `master` branche master
 
 #### Lancement d'un conteneur
 
 ```bash
-docker run -d --name=signaturepdf -p 8080:80 signaturepdf
+docker run -d --name=signaturepdf -p 8080:80 xgaia/signaturepdf:latest
 ````
 
 [localhost:8080](http://localhost:8080)
@@ -91,7 +97,7 @@ Les variables suivantes permettent de configurer le déployement :
 |`MAX_FILE_UPLOADS`|Nombre de pages maximum du PDF, ici 200 pages + le PDF d'origine|401|201|
 
 ```bash
-docker run -d --name=signaturepdf -p 8080:80 -e SERVERNAME=pdf.example.org -e UPLOAD_MAX_FILESIZE=48M -e POST_MAX_SIZE=48M -e MAX_FILE_UPLOADS=401 signaturepdf
+docker run -d --name=signaturepdf -p 8080:80 -e SERVERNAME=pdf.example.org -e UPLOAD_MAX_FILESIZE=48M -e POST_MAX_SIZE=48M -e MAX_FILE_UPLOADS=401 xgaia/signaturepdf:latest
 ````
 
 ## Tests
