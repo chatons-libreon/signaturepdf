@@ -1,5 +1,8 @@
 # Signature de PDF
 
+![CI](https://github.com/24eme/signaturepdf/actions/workflows/ci.yaml/badge.svg)
+[![Docker Build](https://img.shields.io/docker/pulls/xgaia/signaturepdf.svg)](https://hub.docker.com/r/xgaia/signaturepdf/)
+
 Logiciel web libre permettant de signer un PDF.
 
 ## Instances

@@ -9,13 +9,15 @@ var browser = null;
 var server = null
 var host = "localhost:"+(9000 + Math.floor((Math.random() * 1000)));
 
+puppeteer.launch({ headless: headless, args: ['--no-sandbox'] });
+
 describe("Signature d'un pdf", () => {
     var originX;
     var originY;
     var hash;
     beforeAll(async () => {
         server = cp.spawn("php", ["-S", host, "-t", "public"]);
-        browser = await puppeteer.launch({ headless: headless });
+        browser = await puppeteer.launch({ headless: headless, args: ['--no-sandbox'] });
         page = await browser.newPage();
         await page.setViewport({ width: 1200, height: 700 })
         await page.goto('http://' + host + '/');
